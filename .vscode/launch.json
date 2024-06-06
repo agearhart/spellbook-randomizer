@@ -1,0 +1,44 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Main File with Arguments (local spells)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/spellbook_randomizer.py",
+            "console": "integratedTerminal",
+            "args": [
+                //"-h",
+                "--spells_folder",
+                "${workspaceFolder}/spells",
+                "--system",
+                "ose",
+                "--caster_level",
+                "6",
+                "--caster_class",
+                "cleric"
+            ]
+        },
+        {
+            "name": "Python Debugger: Main File with Arguments (github spells)",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/spellbook_randomizer.py",
+            "console": "integratedTerminal",
+            "args": [
+                //"-h",
+                "--spells_folder",
+                "https://github.com/agearhart/spellbook-randomizer/spells",
+                "--system",
+                "ose",
+                "--caster_level",
+                "2",
+                "--caster_class",
+                "cleric"
+            ]
+        }
+    ]
+}

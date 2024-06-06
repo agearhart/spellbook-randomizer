@@ -1,0 +1,35 @@
+name: Generate Spellbook
+run-name: Generating Spellbook
+on:
+    workflow_dispatch:
+      inputs:
+        system:
+            description: 'Which game system are we generating a spellbook for?  System JSON file must exist in spells folder.'
+            required: true
+            type: choice
+            options:
+                - ose
+        caster_class:
+            description: "What is the owning caster's class?  Must be a class found in System JSON file."
+            required: true
+            type: choice
+            options:
+                - cleric
+                - "magic user"
+        caster_level:
+            description: "What is the level of the owning caster?"
+            required: true
+            type: number
+jobs:
+    GenerateSpellbook:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup PDM
+              uses: pdm-project/setup-pdm@v4
+            # You are now able to use PDM in your workflow
+            - name: Install dependencies
+              run: pdm install
+            - name: Generate Spellbook
+              run: python src/spellbook_randomizer.py --spells_folder "https://github.com/agearhart/spellbook-randomizer" --system {{ inputs.system }} --caster_class {{ inputs.caster_class }} --caster_level {{ inputs.caster_level }}
+    

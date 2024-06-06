@@ -1,0 +1,188 @@
+{
+    "classes":[
+        {
+            "class": "magic user",
+            "spell_progression": [
+                [1],
+                [2],
+                [2,1],
+                [2,2],
+                [2,2,1],
+                [2,2,2],
+                [3,2,2,1],
+                [3,3,2,2],
+                [3,3,3,2,1],
+                [3,3,3,3,2],
+                [4,3,3,3,2,1],
+                [4,4,3,3,3,2],
+                [4,4,4,3,3,3],
+                [4,4,4,4,3,3]
+            ]
+        },
+        {
+            "class": "cleric",
+            "spell_progression": [
+                [0],
+                [1],
+                [2],
+                [2,1],
+                [2,2],
+                [2,2,1,1],
+                [2,2,2,1,1],
+                [3,3,2,1,1],
+                [3,3,3,2,2],
+                [4,4,3,3,2],
+                [4,4,4,3,3],
+                [5,5,4,4,3],
+                [5,5,5,4,4],
+                [6,5,5,5,4]
+            ]
+        }
+    ],
+    "spells": [
+        {
+            "name": "Charm Person",
+            "reversable": false,
+            "level": 1,
+            "class": "magic user"
+        },
+        {
+            "name": "Light",
+            "reversable": true,
+            "level": 1,
+            "class": "magic user"
+        },
+        {
+            "name": "Cure Light Wounds",
+            "reversable": true,
+            "level": 1,
+            "class": "cleric"
+        },
+        {
+            "name": "Detect Evil",
+            "reversable": false,
+            "level": 1,
+            "class": "cleric"
+        },
+        {
+            "name": "Detect Magic",
+            "reversable": false,
+            "level": 1,
+            "class": "cleric"
+        },
+        {
+            "name": "Light",
+            "reversable": true,
+            "level": 1,
+            "class": "cleric"
+        },
+        {
+            "name": "Protection from Evil",
+            "reversable": false,
+            "level": 1,
+            "class": "cleric"
+        },
+        {
+            "name": "Purify Food & Water",
+            "reversable": false,
+            "level": 1,
+            "class": "cleric"
+        },
+        {
+            "name": "Remove Fear",
+            "reversable": true,
+            "level": 1,
+            "class": "cleric"
+        },
+        {
+            "name": "Resist Cold",
+            "reversable": false,
+            "level": 1,
+            "class": "cleric"
+        },
+        {
+            "name": "Bless",
+            "reversable": true,
+            "level": 2,
+            "class": "cleric"
+        },
+        {
+            "name": "Find Traps",
+            "reversable": false,
+            "level": 2,
+            "class": "cleric"
+        },
+        {
+            "name": "Hold Person",
+            "reversable": false,
+            "level": 2,
+            "class": "cleric"
+        },
+        {
+            "name": "Know Alignment",
+            "reversable": false,
+            "level": 2,
+            "class": "cleric"
+        },
+        {
+            "name": "Resist Fire",
+            "reversable": false,
+            "level": 2,
+            "class": "cleric"
+        },
+        {
+            "name": "Silence 15' Radius",
+            "reversable": false,
+            "level": 2,
+            "class": "cleric"
+        },
+        {
+            "name": "Snake Charm",
+            "reversable": false,
+            "level": 2,
+            "class": "cleric"
+        },
+        {
+            "name": "Speak with Animals",
+            "reversable": false,
+            "level": 2,
+            "class": "cleric"
+        },
+        {
+            "name": "Continual Light",
+            "reversable": true,
+            "level": 3,
+            "class": "cleric"
+        },
+        {
+            "name": "Cure Disease",
+            "reversable": true,
+            "level": 3,
+            "class": "cleric"
+        },
+        {
+            "name": "Growth of Animal",
+            "reversable": false,
+            "level": 3,
+            "class": "cleric"
+        },
+        {
+            "name": "Locate Object",
+            "reversable": false,
+            "level": 3,
+            "class": "cleric"
+        },
+        {
+            "name": "Remove Curse",
+            "reversable": true,
+            "level": 3,
+            "class": "cleric"
+        },
+        {
+            "name": "Striking",
+            "reversable": false,
+            "level": 3,
+            "class": "cleric"
+        }
+    ]
+}

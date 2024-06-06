@@ -1,0 +1,20 @@
+[project]
+name = "spellbook_randomizer"
+version = "0.0.1"
+description = "Generate randomized spellbooks for various TTRPGs"
+requires-python = ">=3.8"
+readme = "README.md"
+license = {text = "MIT"}
+dependencies = [
+    "validators>=0.28.3",
+    "requests>=2.32.3",
+]
+
+[tool.pdm]
+distribution = false
+
+[tool.pdm.dev-dependencies]
+lint = [
+    "flake8",
+    "black"
+]
