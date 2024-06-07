@@ -23,7 +23,7 @@ def main():
 
     spellbook_selector:SpellbookSelector = SpellbookSelector(logger)
 
-    spells: List[dict] = spellbook_selector.generate_spellbook(args.caster_level, args.caster_class_spells, args.caster_class_progression)
+    spells: List[dict] = spellbook_selector.generate_spellbook(args.caster_level, args.caster_class_spells, args.caster_class_progression, args.custom_allocation)
     pretty_spells: List[str] = spellbook_selector.prety_print_spells(spells)
 
     logger.info(f"Found {args.caster_class} {args.caster_level + 1} spellbook contains:")

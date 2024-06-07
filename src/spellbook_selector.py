@@ -20,31 +20,37 @@ class SpellbookSelector:
     def generate_spellbook(self,
                            caster_level: int,
                            caster_class_spells: List[dict],
-                           caster_class_progression: List[List[int]]) -> List[dict]:
+                           caster_class_progression: List[List[int]],
+                           custom_allocation: List[int] = []) -> List[dict]:
         """Select spells for the spellbook based on the owning caster's class and level
 
         Args:
             caster_level (int): The level of the owning caster
             caster_class_spells (List[dict]): Spells available to the caster class
             caster_class_progression (List[List[int]]): Array of how many spells slots per level the caster has access
+            custom_allocation (List[int]): A custom allocation of spells per level to choose
 
         Returns:
             List[dict]: _description_
         """
 
         spells_by_level = defaultdict(list)
+        spells_for_level: List[int] = []
         randomly_selected_spells: List[dict] = []
 
         for spell in caster_class_spells:
             spells_by_level[spell['level'] - 1].append(spell)
 
-        progression_level: int = min([len(caster_class_progression), caster_level])
+        if not custom_allocation:
+            progression_level: int = min([len(caster_class_progression), caster_level])
 
-        if len(caster_class_progression) - 1 < progression_level:
-            self.logger.error(f"pell progression list is smaller than {progression_level}")
-            return []
+            if len(caster_class_progression) - 1 < progression_level:
+                self.logger.error(f"pell progression list is smaller than {progression_level}")
+                return []
 
-        spells_for_level: List[int] = caster_class_progression[progression_level]
+            spells_for_level = caster_class_progression[progression_level]
+        else:
+            spells_for_level = custom_allocation
 
         # for each spell level we want to choose as many spells as can be memorized
         for spell_level, quantity in enumerate(spells_for_level):

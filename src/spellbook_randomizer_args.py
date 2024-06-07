@@ -20,6 +20,7 @@ class SpellbookRandomizerArgs:
 
     caster_class_spells: List[dict] = []
     caster_class_progression: List[List[int]] = []
+    custom_allocation: List[int] = []
 
 
     def __init__(self, inLogger: Logger = None) -> None:
@@ -97,6 +98,7 @@ class SpellbookRandomizerArgs:
         arg_parser.add_argument("--system", required=True, help="Which game system are we generating a spellbook for?  System JSON file must exist in spells folder.")
         arg_parser.add_argument("--caster_class", required=True, help="What is the owning caster's class?  Must be a class found in System JSON file.")
         arg_parser.add_argument("--caster_level", type=int, default=self.caster_level, help=f"What is the level of the owning caster? Default {self.caster_level}")
+        arg_parser.add_argument("--custom_allocation", nargs="*", type=int, help="An array of spells to be found in spellbook per level.  Ex: 2 0 1 would give 2 first level and 1 third level spells.")
 
         args = arg_parser.parse_args()
 
@@ -104,6 +106,7 @@ class SpellbookRandomizerArgs:
         self.system = args.system
         self.caster_level = args.caster_level - 1
         self.caster_class = args.caster_class
+        self.custom_allocation = args.custom_allocation
 
         if not self.__validate():
             self.logger.error("Invalid parameters detected!")
