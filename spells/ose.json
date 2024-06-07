@@ -1,7 +1,7 @@
 {
     "classes":[
         {
-            "class": ["cleric"],
+            "class": "cleric",
             "spell_progression": [
                 [0],
                 [1],
@@ -20,7 +20,7 @@
             ]
         },
         {
-            "class": ["magic user", "elf"],
+            "class": "magic user",
             "spell_progression": [
                 [1],
                 [2],
