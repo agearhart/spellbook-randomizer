@@ -10,6 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/src/spellbook_randomizer.py",
             "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/Scripts/python.exe",
             "args": [
                 //"-h",
                 "--spells_folder",
@@ -28,6 +29,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/src/spellbook_randomizer.py",
             "console": "integratedTerminal",
+            "python": "${workspaceFolder}/.venv/Scripts/python.exe",
             "args": [
                 //"-h",
                 "--spells_folder",
