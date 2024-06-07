@@ -4,23 +4,27 @@ on:
     workflow_dispatch:
       inputs:
         system:
-            description: 'Which game system are we generating a spellbook for?  System JSON file must exist in spells folder.'
-            required: true
-            type: choice
-            options:
-                - ose
+          description: 'Which game system are we generating a spellbook for?  System JSON file must exist in spells folder.'
+          required: true
+          type: choice
+          options:
+              - ose
         caster_class:
-            description: "What is the owning caster's class?  Must be a class found in System JSON file."
-            required: true
-            type: choice
-            options:
-                - cleric
-                - elf
-                - "magic user"
+          description: "What is the owning caster's class?  Must be a class found in System JSON file."
+          required: true
+          type: choice
+          options:
+              - cleric
+              - elf
+              - "magic user"
         caster_level:
-            description: "What is the level of the owning caster?"
-            required: true
-            type: number
+          description: "What is the level of the owning caster?"
+          required: true
+          type: number
+        custom_allocation:
+          description: 'An array of spells to be found in spellbook per level.  Ex: 2 0 1 would give 2 first level and 1 third level spells.'
+          required: false
+          type: string
 jobs:
     GenerateSpellbook:
         runs-on: ubuntu-latest
@@ -35,5 +39,5 @@ jobs:
             - name: Install dependencies
               run: pdm install
             - name: Generate Spellbook
-              run: pdm run ./src/spellbook_randomizer.py --spells_folder "https://raw.githubusercontent.com/agearhart/spellbook-randomizer/main/spells" --system "${{ inputs.system }}" --caster_class "${{ inputs.caster_class }}" --caster_level ${{ inputs.caster_level }}
+              run: pdm run ./src/spellbook_randomizer.py --spells_folder "https://raw.githubusercontent.com/agearhart/spellbook-randomizer/main/spells" --system "${{ inputs.system }}" --caster_class "${{ inputs.caster_class }}" --caster_level ${{ inputs.caster_level }} --custom_allocation ${{ inputs.custom_allocation }}
 
