@@ -54,7 +54,7 @@ class SpellbookRandomizerArgs:
             if not spells_path.exists():
                 self.logger.error(f"Cannot find spells at [{spells_path_str}]!")
                 return False
-            
+
             spells_raw = spells_path.read_text()
 
         spells_dict: dict = json.loads(spells_raw)
@@ -64,16 +64,16 @@ class SpellbookRandomizerArgs:
 
         self.caster_class_progression = [x['spell_progression'] for x in classes if 'class' in x and x['class'] == self.caster_class and 'spell_progression' in x]
         self.caster_class_progression = self.caster_class_progression[0]  # I'm not sure why this above isn't giving me this already
-        self.caster_class_spells = [x for x in spells if 'class' in x and x['class'] == self.caster_class]
+        self.caster_class_spells = [x for x in spells if 'class' in x and self.caster_class in x['class']]
 
         if len(self.caster_class_progression) < 1:
             self.logger.error(f"Cannot find spell progression for class [{self.caster_class}] in [{spells_path_str}]!")
             return False
-        
+
         if len(self.caster_class_spells) < 1:
             self.logger.error(f"Cannot find spells for class [{self.caster_class}] in [{spells_path_str}]!")
             return False
-        
+
         return True
 
     def get_spells_path(self)-> str:
@@ -102,7 +102,7 @@ class SpellbookRandomizerArgs:
 
         self.spells_folder = args.spells_folder
         self.system = args.system
-        self.caster_level = args.caster_level - 1 
+        self.caster_level = args.caster_level - 1
         self.caster_class = args.caster_class
 
         if not self.__validate():
