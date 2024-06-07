@@ -20,7 +20,7 @@ class SpellbookSelectorTests(unittest.TestCase):
     def test__golden_path__succeeds(self):
         """OSE level 4 Cleric should have 2 first level and 1 second level spell
         """
-        cleric_spells = [spell for spell in self.ose_spells['spells'] if spell['class'] == 'cleric']
+        cleric_spells = [spell for spell in self.ose_spells['spells'] if 'cleric' in spell['class']]
         cleric_progression = [p['spell_progression'] for p in self.ose_spells['classes'] if p['class'] == 'cleric']
         cleric_progression = cleric_progression[0]
         cleric_level = 3

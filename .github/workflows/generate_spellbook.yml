@@ -15,6 +15,7 @@ on:
             type: choice
             options:
                 - cleric
+                - elf
                 - "magic user"
         caster_level:
             description: "What is the level of the owning caster?"
