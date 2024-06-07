@@ -34,5 +34,5 @@ jobs:
             - name: Install dependencies
               run: pdm install
             - name: Generate Spellbook
-              run: pdm run ./src/spellbook_randomizer.py --spells_folder "https://raw.githubusercontent.com/agearhart/spellbook-randomizer/main/spells" --system ${{ inputs.system }} --caster_class ${{ inputs.caster_class }} --caster_level ${{ inputs.caster_level }}
-    
+              run: pdm run ./src/spellbook_randomizer.py --spells_folder "https://raw.githubusercontent.com/agearhart/spellbook-randomizer/main/spells" --system "${{ inputs.system }}" --caster_class "${{ inputs.caster_class }}" --caster_level ${{ inputs.caster_level }}
+

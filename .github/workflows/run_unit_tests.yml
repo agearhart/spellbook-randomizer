@@ -1,0 +1,18 @@
+name: Run Unit Tests
+run-name: Run Unit Tests
+on: [push]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup PDM
+              uses: pdm-project/setup-pdm@v4
+              with:
+                cache: true
+                cache-dependency-path: '**/pdm.lock'
+            # You are now able to use PDM in your workflow
+            - name: Install dependencies
+              run: pdm install
+            - name: Run Unit Tests
+              run: pdm run -v pytest
